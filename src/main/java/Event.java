@@ -2,8 +2,9 @@ public abstract class Event {
 
     private int schedule;
     private EventType type;
+    private Handler handler;
 
-    public Event(int schedule, EventType type){
+    public Event(int schedule, EventType type, Handler handler) {
         setSchedule(schedule);
         setType(type);
     }
@@ -22,6 +23,14 @@ public abstract class Event {
 
     public void setSchedule(int schedule) {
         this.schedule = schedule;
+    }
+
+    public void setHandler(Handler handler) {
+        this.handler = handler;
+    }
+
+    public boolean Handle() {
+        return this.handler.Handle();
     }
 
     public abstract boolean condition();
