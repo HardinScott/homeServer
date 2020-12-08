@@ -1,12 +1,8 @@
-import java.io.IOException;
-import java.net.InetAddress;
-
 public class Main {
-
-    public static void main(String[] args) throws IOException {
-        String ipAddress5 = "192.168.1.107";
-        String ipAddress24 = "192.168.1.108";
-        System.out.println(InetAddress.getByName(ipAddress24).isReachable(5000)
-                || InetAddress.getByName(ipAddress5).isReachable(5000));
+    public static void main(String[] args) {
+        String[] ips = new String[]{"192.168.1.106", "192.168.1.107"};
+        Handler wake = new WakeComputer();
+        Event<String> test = new Phone(5, EventType.connection, wake, ips);
+        System.out.println(test.condition());
     }
 }

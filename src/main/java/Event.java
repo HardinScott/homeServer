@@ -1,4 +1,4 @@
-public abstract class Event {
+public abstract class Event<T> {
 
     private int schedule;
     private EventType type;
